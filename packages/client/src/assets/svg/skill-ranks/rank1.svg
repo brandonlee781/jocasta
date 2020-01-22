@@ -1,0 +1,12 @@
+
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/skill/rank-1" transform="translate(-2.000000, -2.000000)" fill-rule="nonzero" stroke="#ffffffb3">
+            <circle id="Oval-3" stroke-width="2" cx="12" cy="12" r="9"></circle>
+            <path d="M15.8949301,5.72711531 L18.0706014,11.153574 L12.2926246,12.0687157 C12.2575693,10.7312021 12.5205651,9.51508807 13.0816119,8.42037371 C13.6426588,7.32565935 14.5804315,6.42790655 15.8949301,5.72711531 Z" id="Triangle" fill="#ffffffb3" transform="translate(15.180067, 8.897915) rotate(99.000000) translate(-15.180067, -8.897915) "></path>
+        </g>
+    </g>
+</svg>

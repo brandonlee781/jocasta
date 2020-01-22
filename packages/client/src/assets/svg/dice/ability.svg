@@ -1,0 +1,11 @@
+
+<svg width="16px" height="24px" viewBox="0 0 16 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-testid="ability-icon">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dice-/-Ability" transform="translate(-4.000000, 0.000000)" fill="#579C07" fill-rule="nonzero" stroke="#000000">
+            <path d="M4.41181839,4.6946611 L6.8284596,17.5616427 L19.9734114,19.7197691 L17.2955991,7.11445747 L4.41181839,4.6946611 Z" id="Rectangle-3" transform="translate(12.200000, 12.200000) rotate(45.000000) translate(-12.200000, -12.200000) "></path>
+        </g>
+    </g>
+</svg>
