@@ -54,6 +54,7 @@ const Character: React.FC = () => {
   const match = useRouteMatch("/character/:id");
 
   const { loading, error, character } = useCharacter(id);
+  document.title = `Jocasta - ${character?.name}`;
 
   if (loading) return <LoadingPage />;
   if (error) return <span>{ error.message }</span>;
