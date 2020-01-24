@@ -6,8 +6,6 @@ import { InitialState, RootDispatcher, InfoDrawerChildren, SkillInfo } from 'sto
 import { useCharacter } from 'Character/use/useCharacter';
 
 import { Character } from 'Character/Character.model';
-import { UPDATE_WOUNDS, UpdateWoundsVariables, UpdateWoundsResult } from 'Character/graphql/Mutation/UpdateWounds.mutation';
-import { UPDATE_STRAIN, UpdateStrainVariables, UpdateStrainResult } from 'Character/graphql/Mutation/UpdateStrain.mutation';
 import { UPDATE_INJURIES, UpdateInjuriesResult, UpdateInjuriesVariables } from 'Character/graphql/Mutation/UpdateInjuries.mutations';
 
 import Drawer from '@material-ui/core/Drawer';
@@ -17,31 +15,14 @@ import SkillIcons from 'Skill/components/SkillInfoDrawer/SkillIcons/SkillIcons';
 import { HealthInfoDrawer } from 'Character/components/HealthInfoDrawer';
 import { SkillInfoDrawer } from 'Skill/components/SkillInfoDrawer/SkillInfoDrawer';
 import { Characteristic } from 'Base/types/Characteristic';
+import { useWounds, useStrain } from 'Character/use/useHealth';
 import { Content, CloseButton } from './InfoDrawer.style';
 
 const HealthDrawer: React.FC<{ character?: Character }> = ({ character }) => {
-  const [updateWounds] = useMutation<UpdateWoundsResult, UpdateWoundsVariables>(UPDATE_WOUNDS);
-  const [updateStrain] = useMutation<UpdateStrainResult, UpdateStrainVariables>(UPDATE_STRAIN);
-  const [updateInjuries] = useMutation<UpdateInjuriesResult, UpdateInjuriesVariables>(UPDATE_INJURIES)
+  const [wounds, setWounds] = useWounds(character?.id ?? '', character?.derivedAttributes?.wounds);
+  const [strain, setStrain] = useStrain(character?.id ?? '', character?.derivedAttributes?.strain)
   
-  const woundsChanged = (wounds: number) => {
-    updateWounds({
-      variables: {
-        id: character?.id || '',
-        wounds,
-      }
-    });
-  };
-
-  const strainChanged = (strain: number) => {
-    updateStrain({
-      variables: {
-        id: character?.id || '',
-        strain,
-      }
-    });
-  };
-
+  const [updateInjuries] = useMutation<UpdateInjuriesResult, UpdateInjuriesVariables>(UPDATE_INJURIES);
   const injuriesChanged = (injuries: string) => {
     updateInjuries({
       variables: {
@@ -54,12 +35,12 @@ const HealthDrawer: React.FC<{ character?: Character }> = ({ character }) => {
   return <HealthInfoDrawer
       injuries={character?.injuries}
       soak={character?.derivedAttributes?.soak}
-      wounds={character?.derivedAttributes?.wounds}
-      strain={character?.derivedAttributes?.strain}
+      wounds={wounds}
+      strain={strain}
       meleeDef={character?.derivedAttributes?.defense?.melee}
       rangedDef={character?.derivedAttributes?.defense?.ranged}
-      onWoundsChange={woundsChanged}
-      onStrainChange={strainChanged}
+      onWoundsChange={(value: number) => setWounds(value)}
+      onStrainChange={(value: number) => setStrain(value)}
       onInjuriesChange={injuriesChanged}
     />
 }
