@@ -28,12 +28,12 @@ describe('<CountInput />', () => {
 
   test('triggers add function when increase button is clicked', () => {
     let count = 0;
-    const add = () => count += 1;
-    const remove = () => count -= 1;
+    const add = () => count += 1; // eslint-disable-line
+    const remove = () => count -= 1; // eslint-disable-line
     const { getByTestId } = render(
       <CountInput
-        add={add}
-        remove={remove}
+        increase={add}
+        decrease={remove}
       />
     );
     const increaseButton = getByTestId('increase-button');

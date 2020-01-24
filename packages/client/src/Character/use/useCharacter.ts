@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { useQuery } from '@apollo/react-hooks';
-import { GetCharacterResult, GetCharacterVariables, GET_CHARACTERS } from 'Character/graphql/Query/GetCharacter.query';
+import { useLazyQuery } from '@apollo/react-hooks';
+import { GetCharacterResult, GetCharacterVariables, GET_CHARACTER } from 'Character/graphql/Query/GetCharacter.query';
 import { ApolloError } from 'apollo-boost';
 import { Character } from 'Character/Character.model';
+import { useMemo } from 'react';
 
 interface UseCharacterResponse {
   loading: boolean;
@@ -10,16 +10,20 @@ interface UseCharacterResponse {
   character: Character | undefined;
 }
 export const useCharacter = (id: string): UseCharacterResponse => {
-  const [characterId] = useState(id || '');
-  const { loading, error, data } = useQuery<GetCharacterResult, GetCharacterVariables>(GET_CHARACTERS, {
-    variables: {
-      id: characterId,
-    },
-  });
+  const [getCharacter, { loading, error, data }] = useLazyQuery<GetCharacterResult, GetCharacterVariables>(GET_CHARACTER);
+
+  useMemo(() => {
+    getCharacter({
+      variables: {
+        id,
+      },
+    });
+    
+  }, [id, getCharacter]);
 
   return {
     loading,
     error,
-    character: data?.character,
-  };
+    character: data?.character
+  }
 };

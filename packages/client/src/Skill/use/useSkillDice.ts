@@ -56,7 +56,7 @@ export default function useSkillDice(initialState: Dice, skillName: string):
     command,
     (value) => {
       if (typeof value === 'function') {
-        return setDice(value(dice));
+        setDice(value(dice));
       }
       setDice(value);
     },

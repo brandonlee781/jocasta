@@ -2,7 +2,6 @@ import React from 'react';
 import { DerivedAttributes } from 'Character/Character.model';
 import { AttributeItemWrapper, AttributeRow, Wrapper } from './Attributes.style';
 
-
 interface AttributeItemProps { title: string; value: string | number; }
 const AttributeItem: React.FC<AttributeItemProps> = ({ title, value }) => (
   <AttributeItemWrapper>

@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, {  useState } from 'react';
-import { Grid, IconButton, Tooltip } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 import { CharacteristicAcronyms, Characteristic as CharacteristicEnum } from 'Base/types/Characteristic';
 import { DiceDisplay } from 'Dice/DiceDisplay/DiceDisplay';
 import { CharacterCharacteristics } from 'Character/Character.model';
@@ -13,12 +12,12 @@ import { ReactComponent as ChallengeIcon } from 'assets/svg/dice/challenge.svg';
 import { ReactComponent as DifficultyIcon } from 'assets/svg/dice/difficulty.svg';
 import { ReactComponent as ProficiencyIcon } from 'assets/svg/dice/proficiency.svg';
 import { ReactComponent as SetbackIcon } from 'assets/svg/dice/setback.svg';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
 import { DiceCountInput } from 'Dice/DiceCountInput/DiceCountInput';
-import useCopyClipboard from 'use/useCopyClipboard';
+import useCopyClipboard from 'Base/use/useCopyClipboard';
 import useSkillDice, { SkillDice } from 'Skill/use/useSkillDice';
 import { SkillInfo } from 'store/root-reducer';
-import { Wrapper, SkillDetail, SkillIcon, SkillDetailContent, SkillName, Characteristic, CurrentDice, Rank, ModifyDice, ResetButton } from './SkillInfoDrawer.style';
+// import useDiceRoll from 'Dice/use/useDiceRoll';
+import { Wrapper, SkillDetail, SkillIcon, SkillDetailContent, SkillName, Characteristic, CurrentDice, Rank, ModifyDice, ResetButton, DiceLabel, DiceActionButton } from './SkillInfoDrawer.style';
 
 const getSkillDice = (rank: number, characteristic: number) => {
   const max = Math.max(rank, characteristic);
@@ -44,6 +43,7 @@ export const SkillInfoDrawer: React.FC<SkillInfoDrawerProps> = ({
   const skillDice = getSkillDice(skill.rank, skillProficiency);
   
   const [dice, diceString, setDice, resetDice] = useSkillDice(skillDice, skill.name);
+  // const [roll, newRoll] = useDiceRoll();
   const [isCopied, triggerCopy] = useCopyClipboard(diceString, { successDuration: 3000 });
   const [isDirty, setIsDirty] = useState(false);
 
@@ -55,6 +55,10 @@ export const SkillInfoDrawer: React.FC<SkillInfoDrawerProps> = ({
     if (!isDirty) setIsDirty(true);
     setDice(d => ({ ...d, [die]: dice[die] >= 1 ? dice[die] - 1 : 0}));
   };
+  const clickReset = () => {
+    setIsDirty(false);
+    resetDice();
+  }
 
   return (
     <Wrapper container direction="column">
@@ -76,67 +80,69 @@ export const SkillInfoDrawer: React.FC<SkillInfoDrawerProps> = ({
           </Grid>
         </SkillDetailContent>
       </SkillDetail>
+      <Divider/>
 
       <CurrentDice>
         <DiceDisplay
           {...dice}
         />
 
-        <Tooltip title="Copy Discord Roll Command">
-          <IconButton
-            className="copy-button"
-            onClick={triggerCopy}
-          >
-            <FileCopyIcon />
-          </IconButton>
-        </Tooltip>
+        <Grid container justify="space-between">
+          <DiceActionButton>
+            Roll Dice
+          </DiceActionButton>
+          <DiceActionButton onClick={triggerCopy}>
+            Copy CMD
+          </DiceActionButton>
+        </Grid>
       </CurrentDice>
+      <Divider/>
 
       <ModifyDice>
-        <span className="modify-dice-label">Modify Dice</span>
+        <DiceLabel>Modify Dice</DiceLabel>
         <DiceCountInput
           label="Boost"
           die={<BoostIcon />}
-          add={() => addDie('boost')}
-          remove={() => removeDie('boost')}
+          increase={() => addDie('boost')}
+          decrease={() => removeDie('boost')}
         />
 
         <DiceCountInput
           label="Setback"
           die={<SetbackIcon />}
-          add={() => addDie('setback')}
-          remove={() => removeDie('setback')}
+          increase={() => addDie('setback')}
+          decrease={() => removeDie('setback')}
         />
 
         <DiceCountInput
           label="Ability"
           die={<AbilityIcon />}
-          add={() => addDie('ability')}
-          remove={() => removeDie('ability')}
+          increase={() => addDie('ability')}
+          decrease={() => removeDie('ability')}
         />
 
         <DiceCountInput
           label="Difficulty"
           die={<DifficultyIcon />}
-          add={() => addDie('difficulty')}
-          remove={() => removeDie('difficulty')}
+          increase={() => addDie('difficulty')}
+          decrease={() => removeDie('difficulty')}
         />
 
         <DiceCountInput
           label="Proficiency"
           die={<ProficiencyIcon />}
-          add={() => addDie('proficiency')}
-          remove={() => removeDie('proficiency')}
+          increase={() => addDie('proficiency')}
+          decrease={() => removeDie('proficiency')}
         />
 
         <DiceCountInput
           label="Challenge"
           die={<ChallengeIcon />}
-          add={() => addDie('challenge')}
-          remove={() => removeDie('challenge')}
+          increase={() => addDie('challenge')}
+          decrease={() => removeDie('challenge')}
         />
 
-        <ResetButton disabled={!isDirty} onClick={resetDice}>
+        <ResetButton disabled={!isDirty} onClick={clickReset} variant="outlined">
           Reset Dice
         </ResetButton>
       </ModifyDice>

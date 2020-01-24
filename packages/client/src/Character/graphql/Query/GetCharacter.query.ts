@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 import { Character } from 'Character/Character.model';
 
-export const GET_CHARACTERS = gql`
+export const GET_CHARACTER = gql`
   query GetCharacter($id: ID!) {
     character(where: { id: $id }){
       id

@@ -1,24 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from 'App/pages/App';
+
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider, } from '@apollo/react-hooks';
 import { client } from 'client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/core';
-import { theme } from 'theme';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import * as serviceWorker from './serviceWorker';
 
+import App from './App';
+
+if (process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line global-require
+  const whyDidYouRender = require('@welldone-software/why-did-you-render');
+  whyDidYouRender(React);
+}
+
 ReactDOM.render(
   <Provider store={store}>
-    <ApolloProvider client={client}>
-      <Router>
-        <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <Router>
           <App />
-        </ThemeProvider>
-      </Router>
+    </Router>
     </ApolloProvider>
   </Provider>,
   document.getElementById('root')

@@ -1,23 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { ReactComponent as GearIcon } from 'assets/svg/ui/gear.svg';
-import { ReactComponent as DutyIcon } from 'assets/svg/ui/rebels.svg';
-import { ReactComponent as SkillIcon } from 'assets/svg/ui/skills.svg';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import NotesIcon from '@material-ui/icons/Notes';
 import StarsOutlinedIcon from '@material-ui/icons/StarsOutlined';
+import { ReactComponent as GearIcon } from 'assets/svg/ui/gear.svg';
+import { ReactComponent as DutyIcon } from 'assets/svg/ui/rebels.svg';
+import { ReactComponent as SkillIcon } from 'assets/svg/ui/skills.svg';
 import { useRouteMatch } from 'react-router-dom';
-import { NavigationButton } from '../NavigationButton/NavigationButton';
 
-const NavigationWrapper = styled('nav')`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  padding: 8px;
-`;
+import { NavigationButton } from 'Base/components/navigation/NavigationButton';
+import { NavigationWrapper } from './Navigation.style';
+
+
 interface NavigationProps {
   linkClicked?: () => void;
 }

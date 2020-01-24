@@ -1,43 +1,23 @@
 import React from 'react';
-import ButtonBase from '@material-ui/core/ButtonBase'
-import styled from 'styled-components';
-import Grid from '@material-ui/core/Grid';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import { useTheme } from '@material-ui/core';
+import { Content, Button } from './CountInput.style';
 
-const Content = styled(Grid)``;
-const Button = styled(ButtonBase)`
-  && {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    height: 22px;
-    width: 22px;
-    padding: 0;
-  
-    border: 0;
-    border-radius: 5px;
-    background-color: #243A51;
-    
-    svg {
-      color: white;
-      font-size: 16px;
-    }
-  }
-`;
 export interface CountInputProps {
-  add?: () => void;
-  remove?: () => void;
+  increase?: () => void;
+  decrease?: () => void;
 }
-export const CountInput: React.FC<CountInputProps> = ({ children, add, remove }) => {
+export const CountInput: React.FC<CountInputProps> = ({ children, increase, decrease }) => {
+  const theme = useTheme();
+  const isDark = theme.palette.type === 'dark';
   return (
     <Content container direction="row" justify="space-around">
-      <Button data-testid="increase-button" onClick={add}>
+      <Button data-testid="increase-button" onClick={increase} dark={isDark ? 1 : 0}>
         <AddIcon />
       </Button>
       {children}
-      <Button data-testid="decrease-button" onClick={remove}>
+      <Button data-testid="decrease-button" onClick={decrease} dark={isDark ? 1 : 0}>
         <RemoveIcon />
       </Button>
     </Content>

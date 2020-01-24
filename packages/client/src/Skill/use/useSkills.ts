@@ -14,14 +14,23 @@ export type SkillResponse = {
   career: boolean;
   rank: number;
 };
+
+export const SkillTypeFilter = {
+  'All': 'All' as 'All',
+  [SkillType.General]: SkillType.General,
+  [SkillType.Combat]: SkillType.Combat,
+  [SkillType.Knowledge]: SkillType.Knowledge,
+};
+export type SkillTypeFilter = (typeof SkillTypeFilter)[keyof typeof SkillTypeFilter];
+
 interface UseSkillsResponse {
   loading: boolean;
   error: ApolloError | undefined;
   skills: SkillResponse[] | undefined;
 }
-export function useSkills(characterSkills?: CharacterSkill[]): UseSkillsResponse {
+export function useSkills(characterSkills?: CharacterSkill[], typeFilter?: SkillTypeFilter): UseSkillsResponse {
   const { loading, error, data } = useQuery<GetSkillsResponse>(GET_SKILLS);
-
+  
   const skills = useMemo(() => {
     return data?.skills.map(skill => {
       const charSkill = characterSkills?.find(c => c.skillId === skill.id);
@@ -33,8 +42,13 @@ export function useSkills(characterSkills?: CharacterSkill[]): UseSkillsResponse
         career: charSkill?.career ?? false,
         rank: charSkill?.rank ?? 0,
       };
+    }).filter(skill => {
+      if (typeFilter !== SkillTypeFilter.All) {
+        return skill.type === typeFilter;
+      }
+      return true;
     })
-  }, [data, characterSkills])
+  }, [data, characterSkills, typeFilter])
 
   return {
     loading,

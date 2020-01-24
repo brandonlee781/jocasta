@@ -1,14 +1,18 @@
 import styled from 'styled-components';
+import Button from '@material-ui/core/ButtonBase';
+import { Paper } from '@material-ui/core';
 
 interface WrapperProps {
   open: boolean;
 }
-export const Wrapper = styled.div<WrapperProps>`
-  display: grid;
-  grid-template-rows: 1fr ${(props) => props.open ? '200px' : '32px'};
-  grid-template-columns: 100%;
-  height: 100%;
-  width: 100%;
+export const Wrapper = styled(Paper)<WrapperProps>`
+  && {
+    display: grid;
+    grid-template-rows: 1fr ${(props) => props.open ? '200px' : '32px'};
+    grid-template-columns: 100%;
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 interface BackgroundProps {
@@ -22,7 +26,7 @@ export const Background = styled.div<BackgroundProps>`
   height: 100%;
   overflow: hidden;
   padding:
-    ${(props) => props.hasTopNav ? '48px' : '16px'}
+    ${(props) => props.hasTopNav ? '52px' : '16px'}
     16px
     ${ props => props.open ? '38px' : '24px' }
     16px;
@@ -43,4 +47,17 @@ export const TopNavWrapper = styled.div`
   left: 16px;
   right: 16px;
   max-height: 24px;
+`;
+
+
+export const ToggleButton = styled(Button)`
+  width: 100%;
+  height: 32px;
+  background: transparent;
+`;
+export const OpenButton = styled(ToggleButton)`
+  position: absolute !important;
+  bottom: 6px;
+  left: 0;
+  right: 0;
 `;

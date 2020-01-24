@@ -1,57 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Grid, Typography, TextField } from '@material-ui/core';
-import { CountInput } from 'Base/components/input/CountInput/CountInput';
+import TextField from '@material-ui/core/TextField';
+import { CountInput } from 'Base/components/input/CountInput';
 import { Threshold } from 'Base/types/Threshold';
-
-const Wrapper = styled(Grid)``;
-const Title = styled(Typography)`
-  && {
-    margin-left: 32px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 20px;
-    color: #243A51;
-  }
-`;
-
-
-const Section = styled.section`
-  display: grid;
-  grid-template-rows: 24px 48px;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 16px;
-  border-bottom: 1px solid black;
-`;
-
-const SectionTitle = styled.span`
-  width: 100%;
-  grid-column: 1 / span 3;
-  font-size: 18px;
-  line-height: 20px;
-  color: #243A51;
-  text-align: center;
-`;
-
-interface SectionInfoProps { buttons?: boolean; }
-const SectionInfo = styled.div<SectionInfoProps>`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-end;
-  /* padding: ${p => p.buttons ? '0 16px' : ''}; */
-
-  .info-label {
-    font-size: 12px;
-    line-height: 20px;
-    text-align: center;
-  }
-  .info-data {
-    font-size: 22px;
-    line-height: 20px;
-    text-align: center;
-  }
-`;
+import Divider from '@material-ui/core/Divider';
+import { Section, SectionTitle, SectionInfo, Wrapper, Title } from './HealthInfoDrawer.style';
 
 interface DefenseSectionProps {
   soak?: number;
@@ -88,8 +40,8 @@ const WoundsSection: React.FC<WoundsSectionProps> = ({ wounds, increase, decreas
     <SectionTitle>Wounds</SectionTitle>
     <SectionInfo buttons>
       <CountInput
-        add={increase}
-        remove={decrease}
+        increase={increase}
+        decrease={decrease}
       />
     </SectionInfo>
 
@@ -115,8 +67,8 @@ const StrainSection: React.FC<StrainSectionProps> = ({ strain, increase, decreas
     <SectionTitle>Strain</SectionTitle>
     <SectionInfo buttons>
       <CountInput
-        add={increase}
-        remove={decrease}
+        increase={increase}
+        decrease={decrease}
       />
     </SectionInfo>
 
@@ -181,19 +133,22 @@ export const HealthInfoDrawer: React.FC<HealthInfoDrawerProps> = ({
         soak={soak}
         meleeDef={meleeDef}
         rangedDef={rangedDef}
-      />      
+      />
+      <Divider />
 
       <WoundsSection
         wounds={wounds}
         increase={woundsIncrease}
         decrease={woundsDecrease}
       />
+      <Divider />
       
       <StrainSection
         strain={strain}
         increase={strainIncrease}
         decrease={strainDecrease}
       />
+      <Divider />
 
       <TextField
           value={tempInjuries}

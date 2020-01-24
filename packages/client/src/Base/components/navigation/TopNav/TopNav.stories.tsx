@@ -1,9 +1,9 @@
 import React from 'react'
-import { TopNav } from './TopNav'
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
 import { action } from '@storybook/addon-actions';
-import { CombatQuickActions } from '../../CombatQuickActions/CombatQuickActions';
 import { Button } from '@material-ui/core';
+import { CombatQuickActions } from '../../CombatQuickActions';
+import { TopNav } from './TopNav'
 
 export default {
   title: 'TopNav',
@@ -23,7 +23,7 @@ const health = {
 export const Default = () => (
   <MobileDisplay>
     <div style={{ background: 'black' }}>
-      <TopNav menuClick={action('Menu Clicked')} >
+      <TopNav>
         <Button style={{color: '#DADADA'}}>+ Exp</Button>
       </TopNav>
     </div>
@@ -34,7 +34,7 @@ const characterName = "Bran Highwind";
 export const WithCombatQuickActions = () => (
   <MobileDisplay>
     <div style={{ background: 'black' }}>
-      <TopNav name={characterName} menuClick={action('Menu Clicked')} >
+      <TopNav name={characterName}>
         <CombatQuickActions
           wounds={health.wounds}
           strain={health.strain}

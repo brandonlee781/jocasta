@@ -1,0 +1,1 @@
+export { CharacterSkillsTable } from './SkillsTable';

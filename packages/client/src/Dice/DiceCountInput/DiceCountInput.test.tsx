@@ -34,13 +34,13 @@ describe('<DiceCountInput />', () => {
   test('triggers add function when increase button is clicked', () => {
     let count = 0;
     const add = () => count += 1; // eslint-disable-line
-    const remove = () => count -= 1;  // eslint-disable-line
+    const remove = () => count -= 1; // eslint-disable-line
     const { getByTestId } = render(
       <DiceCountInput
         label="Test Label"
         die={ <span>Hello World</span>}
-        add={add}
-        remove={remove}
+        increase={add}
+        decrease={remove}
       />
     );
     const increaseButton = getByTestId('increase-button');

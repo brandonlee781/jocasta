@@ -1,9 +1,8 @@
 import React from 'react';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Navigation } from '../navigation/Navigation/Navigation';
-import { ContentWrapper, Wrapper, TopNavWrapper, Background } from './PageWrapper.style';
-import { OpenButton, ToggleButton } from './buttons';
+import { Navigation } from '../navigation/Navigation';
+import { ContentWrapper, Wrapper, TopNavWrapper, Background, OpenButton, ToggleButton } from './PageWrapper.style';
 
 interface PageWrapperMenuProps {
   open: boolean;

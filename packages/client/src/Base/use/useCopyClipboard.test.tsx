@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React from "react";
 import { cleanup, fireEvent, render, act } from "@testing-library/react";
 import useClipboard from "./useCopyClipboard";

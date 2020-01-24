@@ -1,20 +1,22 @@
 import React from 'react';
-import Drawer from '@material-ui/core/Drawer';
+import { useParams } from 'react-router-dom';
+import { useMutation } from '@apollo/react-hooks';
 import { useSelector, useDispatch } from 'react-redux';
 import { InitialState, RootDispatcher, InfoDrawerChildren, SkillInfo } from 'store/root-reducer';
-import { HealthInfoDrawer } from 'Character/components/HealthInfoDrawer/HealthInfoDrawer';
-import { useParams } from 'react-router-dom';
 import { useCharacter } from 'Character/use/useCharacter';
-import CloseIcon from '@material-ui/icons/Close';
+
 import { Character } from 'Character/Character.model';
-import { useMutation } from '@apollo/react-hooks';
 import { UPDATE_WOUNDS, UpdateWoundsVariables, UpdateWoundsResult } from 'Character/graphql/Mutation/UpdateWounds.mutation';
 import { UPDATE_STRAIN, UpdateStrainVariables, UpdateStrainResult } from 'Character/graphql/Mutation/UpdateStrain.mutation';
 import { UPDATE_INJURIES, UpdateInjuriesResult, UpdateInjuriesVariables } from 'Character/graphql/Mutation/UpdateInjuries.mutations';
+
+import Drawer from '@material-ui/core/Drawer';
+import CloseIcon from '@material-ui/icons/Close';
+
+import SkillIcons from 'Skill/components/SkillInfoDrawer/SkillIcons/SkillIcons';
+import { HealthInfoDrawer } from 'Character/components/HealthInfoDrawer';
 import { SkillInfoDrawer } from 'Skill/components/SkillInfoDrawer/SkillInfoDrawer';
-import { SkillResponse } from 'Skill/use/useSkills';
 import { Characteristic } from 'Base/types/Characteristic';
-import { SkillIcons } from 'Skill/components/SkillInfoDrawer/SkillIcons/SkillIcons';
 import { Content, CloseButton } from './InfoDrawer.style';
 
 const HealthDrawer: React.FC<{ character?: Character }> = ({ character }) => {

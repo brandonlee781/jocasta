@@ -1,0 +1,1 @@
+export { HealthInfoDrawer } from './HealthInfoDrawer';

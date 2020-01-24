@@ -35,7 +35,7 @@ import VigilanceIcon from 'mdi-react/PartyPopperIcon';
 import WarfareIcon from 'mdi-react/BombIcon';
 import XenologyIcon from 'mdi-react/AlienOutlineIcon';
 
-export const SkillIcons: React.ReactElement[] = [
+const SkillIcons: React.ReactElement[] = [
   <SkillIcon />,
   <AstrogationIcon />,
   <AthleticsIcon />,
@@ -72,3 +72,5 @@ export const SkillIcons: React.ReactElement[] = [
   <WarfareIcon />,
   <XenologyIcon />,
 ];
+
+export default SkillIcons;

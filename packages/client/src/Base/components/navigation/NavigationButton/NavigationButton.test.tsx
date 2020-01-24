@@ -8,7 +8,7 @@ describe('<NavigationButton />', () => {
   test('renders', () => {
     const { asFragment } = render(
       <BrowserRouter>
-        <NavigationButton to="/"></NavigationButton>
+        <NavigationButton to="/" />
       </BrowserRouter>
     );
 
@@ -19,7 +19,7 @@ describe('<NavigationButton />', () => {
     const to = "/hello";
     const button = render(
       <BrowserRouter>
-        <NavigationButton to={to}></NavigationButton>
+        <NavigationButton to={to} />
       </BrowserRouter>
     );
     const links = button.baseElement.getElementsByTagName('a')
@@ -31,7 +31,7 @@ describe('<NavigationButton />', () => {
     const { getByText } = render(
       <BrowserRouter>
         <NavigationButton to="/">
-          <div>Hello World!</div>
+          <span>Hello World!</span>
           <span>This is a link</span>
         </NavigationButton>
       </BrowserRouter>

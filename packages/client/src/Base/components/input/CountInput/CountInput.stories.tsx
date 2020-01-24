@@ -1,6 +1,6 @@
 import React from 'react';
-import { CountInput } from './CountInput';
 import { action } from '@storybook/addon-actions';
+import { CountInput } from './CountInput';
 
 export default {
   title: 'CountInput',
@@ -10,8 +10,8 @@ export default {
 export const Default = () => (
   <div style={{ maxWidth: '90px' }}>
     <CountInput
-      add={action('Add 1')}
-      remove={action('Remove 1')}
+      increase={action('Add 1')}
+      decrease={action('Remove 1')}
     />
   </div>
 );

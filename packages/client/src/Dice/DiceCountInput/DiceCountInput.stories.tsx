@@ -12,7 +12,7 @@ export const Default = () => (
   <DiceCountInput
     label="Boost"
     die={<BoostIcon />}
-    add={action('Add 1 Boost')}
-    remove={action('Remove 1 Boost')}
+    increase={() => action('Add 1 Boost')}
+    decrease={() => action('Remove 1 Boost')}
   />
 );
