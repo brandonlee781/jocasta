@@ -41,6 +41,14 @@ export interface CharacterSpecialization {
   name?: string;
 }
 
+export interface TalentTreeNode {
+  id?: string;
+  row?: number;
+  column?: number;
+  connections?: number[];
+  
+}
+
 export interface Character {
   id?: string;
   name?: string;

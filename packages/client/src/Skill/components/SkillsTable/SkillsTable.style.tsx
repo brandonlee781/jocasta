@@ -1,29 +1,4 @@
-import { TableCell } from '@material-ui/core';
 import styled from 'styled-components';
-
-export const SkillHeadCell = styled(TableCell)`
-  && {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    color: rgba(218, 218, 218, 0.5);
-    border-top: 1px solid rgba(218, 218, 218, 0.5);
-    border-bottom: 1px solid rgba(218, 218, 218, 0.5);
-  }
-`;
-
-export const SkillNameCell = styled(TableCell)`
-  && {
-    color: #DADADA;
-    border-bottom: none;
-    
-    & > .name-cell {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-    }
-  }
-`;
 
 export const SkillIcon = styled.span`
   display: inline-flex;
@@ -36,11 +11,6 @@ export const SkillIcon = styled.span`
   }
 `;
 
-export const SkillDataCell = styled(SkillNameCell)`
-  && {
-    color: #FFFFFF;
-  }
-`;
 type CareerDotProps = { career: boolean; };
 export const CareerDot = styled.div<CareerDotProps>`
   height: 8px;
