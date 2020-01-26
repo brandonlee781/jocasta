@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { DiceCountInput } from './DiceCountInput';
 
 export default {
-  title: 'DiceCountInput',
+  title: 'Dice/DiceCountInput',
   component: DiceCountInput,
 }
 

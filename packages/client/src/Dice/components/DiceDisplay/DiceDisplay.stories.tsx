@@ -1,10 +1,10 @@
 import React from 'react';
 import { withKnobs, number } from "@storybook/addon-knobs";
-import { DiceDisplay } from './DiceDisplay';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { DiceDisplay } from './DiceDisplay';
 
 export default {
-  title: 'DiceDisplay',
+  title: 'Dice/DiceDisplay',
   component: DiceDisplay,
   decorators: [withKnobs],
 }
