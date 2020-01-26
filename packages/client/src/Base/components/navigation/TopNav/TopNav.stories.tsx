@@ -6,7 +6,7 @@ import { CombatQuickActions } from '../../CombatQuickActions';
 import { TopNav } from './TopNav'
 
 export default {
-  title: 'TopNav',
+  title: 'Base/Navigation/TopNav',
   component: TopNav
 }
 

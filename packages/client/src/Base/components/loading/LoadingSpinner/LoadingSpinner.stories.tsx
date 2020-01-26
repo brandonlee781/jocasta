@@ -2,7 +2,7 @@ import React from 'react';
 import { LoadingSpinner } from './LoadingSpinner';
 
 export default {
-  title: 'LoadingSpinner',
+  title: 'Base/Loading/LoadingSpinner',
   component: LoadingSpinner,
 }
 

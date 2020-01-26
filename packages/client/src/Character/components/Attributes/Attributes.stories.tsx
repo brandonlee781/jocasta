@@ -1,6 +1,6 @@
 import React from 'react';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
-import { Character, DerivedAttribute } from 'generated/graphql';
+import {  DerivedAttribute } from 'generated/graphql';
 import { Attributes } from './Attributes';
 
 const style = {
@@ -15,7 +15,7 @@ const style = {
 };
 
 export default {
-  title: 'Attributes',
+  title: 'Character/Attributes',
   component: Attributes,
   decorators: [(story: any) => (
     <MobileDisplay width={360} >

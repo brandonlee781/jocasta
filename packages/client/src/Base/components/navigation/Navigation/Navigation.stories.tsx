@@ -1,9 +1,9 @@
 import React from 'react';
-import { Navigation } from './Navigation';
 import { withRouter } from 'Base/stories/withRouter';
+import { Navigation } from './Navigation';
 
 export default {
-  title: 'Navigation',
+  title: 'Base/Navigation/Navigation',
   component: Navigation,
   decorators: [withRouter]
 }

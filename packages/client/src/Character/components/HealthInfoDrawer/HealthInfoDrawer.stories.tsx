@@ -4,7 +4,7 @@ import { Character, DerivedAttribute } from 'generated/graphql';
 import { HealthInfoDrawer } from './HealthInfoDrawer';
 
 export default {
-  title: 'HealthInfoDrawer',
+  title: 'Character/HealthInfoDrawer',
   component: HealthInfoDrawer,
 }
 

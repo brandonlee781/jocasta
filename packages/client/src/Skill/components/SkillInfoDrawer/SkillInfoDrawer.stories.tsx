@@ -1,11 +1,11 @@
 import React from 'react';
 import { ReactComponent as AstrogationIcon } from 'assets/svg/skills/astrogation.svg';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
-import { SkillInfoDrawer } from './SkillInfoDrawer';
 import { SkillType, CharacteristicName } from 'generated/graphql';
+import { SkillInfoDrawer } from './SkillInfoDrawer';
 
 export default {
-  title: 'SkillInfoDrawer',
+  title: 'Skill/SkillInfoDrawer',
   component: SkillInfoDrawer,
 }
 
@@ -33,12 +33,15 @@ const props = {
   },
 }
 
-export const Default = () => (
-  <MobileDisplay width={300}>
-    <SkillInfoDrawer
-      skill={props.skill}
-      icon={<AstrogationIcon />}
-      characteristics={props.character.characteristics}
-    />
-  </MobileDisplay>
-);
+export const Default = () => {
+  const { skill, character } = props;
+  return (
+    <MobileDisplay width={300}>
+      <SkillInfoDrawer
+        skill={skill}
+        icon={<AstrogationIcon />}
+        characteristics={character.characteristics}
+      />
+    </MobileDisplay>
+  );
+};

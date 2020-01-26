@@ -1,14 +1,14 @@
 import React from 'react';
-import Character from './Character';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { client } from 'client';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'theme';
+import Character from './Character';
 
 export default {
-  title: 'CharacterPage',
+  title: 'Character/CharacterPage',
   component: Character,
   decorators: [
     (story: any) => (

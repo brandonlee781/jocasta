@@ -6,7 +6,7 @@ import { useToggle } from 'Base/use/useToggle';
 import { PageWrapper } from './PageWrapper';
 
 export default {
-  title: 'PageWrapper',
+  title: 'Base/PageWrapper',
   component: PageWrapper,
   decorators: [
     withRouter,

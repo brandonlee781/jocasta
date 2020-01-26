@@ -4,7 +4,7 @@ import { MobileDisplay } from 'Base/stories/MobileDisplay';
 import { LoadingPage } from './LoadingPage';
 
 export default {
-  title: 'LoadingPage',
+  title: 'Base/Loading/LoadingPage',
   component: LoadingPage,
   decorators: [
     withRouter,

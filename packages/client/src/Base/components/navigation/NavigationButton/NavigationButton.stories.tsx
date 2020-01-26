@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavigationButton } from './NavigationButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { withRouter } from 'Base/stories/withRouter';
+import { NavigationButton } from './NavigationButton';
 
 export default {
-  title: 'NavigationButton',
+  title: 'Base/Navigation/NavigationButton',
   component: NavigationButton,
   decorators: [withRouter],
 }

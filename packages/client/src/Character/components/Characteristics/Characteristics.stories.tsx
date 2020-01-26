@@ -13,7 +13,7 @@ const style = {
   background: 'radial-gradient(85.02% 85.02% at 50% 16.43%, #1B2735 0%, #243A51 100%)'
 };
 export default {
-  title: 'Characteristic',
+  title: 'Character/Characteristic',
   component: Characteristics,
   decorators: [(story: any) => (
     <MobileDisplay width={360} >

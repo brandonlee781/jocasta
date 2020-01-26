@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { CountInput } from './CountInput';
 
 export default {
-  title: 'CountInput',
+  title: 'Base/CountInput',
   component: CountInput,
 }
 
