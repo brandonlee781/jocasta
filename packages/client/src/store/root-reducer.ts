@@ -1,6 +1,6 @@
 /* eslint-disable no-else-return */
 import { Action, Reducer, Dispatch } from 'redux';
-import { Characteristic } from 'Base/types/Characteristic';
+import { CharacteristicName } from 'generated/graphql';
 
 export enum InfoDrawerChildren {
   HEALTH,
@@ -11,7 +11,7 @@ export enum InfoDrawerChildren {
 export type SkillInfo = {
   id: number;
   name: string;
-  characteristic: Characteristic;
+  characteristic: CharacteristicName;
   rank: number;
 }
 export interface InitialState {

@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { InitialState, RootDispatcher, InfoDrawerChildren, SkillInfo } from 'store/root-reducer';
 import { useCharacter } from 'Character/use/useCharacter';
 
-import { Character } from 'Character/Character.model';
 import { UPDATE_INJURIES, UpdateInjuriesResult, UpdateInjuriesVariables } from 'Character/graphql/Mutation/UpdateInjuries.mutations';
 
 import Drawer from '@material-ui/core/Drawer';
@@ -14,16 +13,16 @@ import CloseIcon from '@material-ui/icons/Close';
 import SkillIcons from 'Skill/components/SkillInfoDrawer/SkillIcons/SkillIcons';
 import { HealthInfoDrawer } from 'Character/components/HealthInfoDrawer';
 import { SkillInfoDrawer } from 'Skill/components/SkillInfoDrawer/SkillInfoDrawer';
-import { Characteristic } from 'Base/types/Characteristic';
 import { useWounds, useStrain } from 'Character/use/useHealth';
 import { Content, CloseButton } from './InfoDrawer.style';
+import { Character, CharacteristicName } from 'generated/graphql';
 
 const HealthDrawer: React.FC<{ character?: Character }> = ({ character }) => {
   const [wounds, setWounds] = useWounds(character?.id ?? '', character?.derivedAttributes?.wounds);
   const [strain, setStrain] = useStrain(character?.id ?? '', character?.derivedAttributes?.strain)
   
   const [updateInjuries] = useMutation<UpdateInjuriesResult, UpdateInjuriesVariables>(UPDATE_INJURIES);
-  const injuriesChanged = (injuries: string) => {
+  const injuriesChanged = (injuries: Character['injuries']) => {
     updateInjuries({
       variables: {
         id: character?.id || '',
@@ -71,7 +70,7 @@ export const InfoDrawer: React.FC<InfoDrawerProps> = () => {
     ChildComp = <HealthDrawer character={character} />;
   } else if (child === InfoDrawerChildren.SKILL) {
     ChildComp = <SkillInfoDrawer 
-      skill={skill ?? { id: 0, name: '', characteristic: Characteristic.Brawn, rank: 0 }}
+      skill={skill ?? { id: 0, name: '', characteristic: CharacteristicName.Brawn, rank: 0 }}
       icon={SkillIcons[skill?.id ?? 0]}
       characteristics={character?.characteristics}
     />

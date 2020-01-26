@@ -12,10 +12,12 @@ export default {
 
 const health = {
   wounds: {
+    id: '1',
     current: 0,
     threshold: 12,
   },
   strain: {
+    id: '2',
     current: 0,
     threshold: 13,
   },

@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost';
-import { Character } from 'Character/Character.model';
+import { Character } from 'generated/graphql';
 
 export const GET_CHARACTER = gql`
   query GetCharacter($id: ID!) {
@@ -12,12 +12,12 @@ export const GET_CHARACTER = gql`
         name
       }
       characteristics {
-        agility
-        brawn
-        intellect
-        cunning
-        presence
-        willpower
+        Agility
+        Brawn
+        Intellect
+        Cunning
+        Presence
+        Willpower
       }
       derivedAttributes {
         id

@@ -1,16 +1,14 @@
 import { useQuery } from '@apollo/react-hooks';
 import { GET_SKILLS, GetSkillsResponse } from 'Skill/graphql/Query/GetSkills.query';
 import { ApolloError } from 'apollo-boost';
-import { SkillType } from 'Skill/Skill.model';
-import { CharacterSkill } from 'Character/Character.model';
-import { Characteristic } from 'Base/types/Characteristic';
 import { useMemo } from 'react';
+import { SkillType, CharacterSkills, CharacteristicName } from 'generated/graphql';
 
 export type SkillResponse = {
   id: number;
   name: string;
   type: SkillType;
-  characteristic: Characteristic;
+  characteristic: CharacteristicName;
   career: boolean;
   rank: number;
 };
@@ -28,7 +26,7 @@ interface UseSkillsResponse {
   error: ApolloError | undefined;
   skills: SkillResponse[] | undefined;
 }
-export function useSkills(characterSkills?: CharacterSkill[], typeFilter?: SkillTypeFilter): UseSkillsResponse {
+export function useSkills(characterSkills?: CharacterSkills[], typeFilter?: SkillTypeFilter): UseSkillsResponse {
   const { loading, error, data } = useQuery<GetSkillsResponse>(GET_SKILLS);
   
   const skills = useMemo(() => {

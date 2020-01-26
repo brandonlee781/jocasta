@@ -1,5 +1,5 @@
 import React from 'react';
-import { DerivedAttributes } from 'Character/Character.model';
+import { DerivedAttribute } from 'generated/graphql';
 import { AttributeItemWrapper, AttributeRow, Wrapper } from './Attributes.style';
 
 interface AttributeItemProps { title: string; value: string | number; }
@@ -10,7 +10,7 @@ const AttributeItem: React.FC<AttributeItemProps> = ({ title, value }) => (
   </AttributeItemWrapper>
 )
 
-interface AttributesProps extends DerivedAttributes {
+interface AttributesProps extends Omit<DerivedAttribute, 'id'> {
   onClick?: () => {};
 }
 export const Attributes: React.FC<AttributesProps> = ({

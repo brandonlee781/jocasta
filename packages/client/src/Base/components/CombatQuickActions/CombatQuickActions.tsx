@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import { ReactComponent as WeaponIcon } from 'assets/svg/ui/weapon-quick-action.svg';
-import { Threshold } from 'Base/types/Threshold';
+import { Threshold } from 'generated/graphql';
 import { HealthButtonContent } from './CombatQuickActions.style';
 
 export interface CombatQuickActionsProps {

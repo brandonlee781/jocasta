@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost'
-import { DerivedAttributes } from 'Character/Character.model';
+import { DerivedAttribute } from 'generated/graphql';
 
 export const UPDATE_WOUNDS = gql`
   mutation UpdateWounds($id: ID!, $wounds: Int!) {
@@ -37,5 +37,5 @@ export interface UpdateWoundsVariables {
 
 export interface UpdateWoundsResult {
   id: string;
-  derivedAttributes: Pick<DerivedAttributes, 'id' | 'wounds'>;
+  derivedAttributes: Pick<DerivedAttribute, 'id' | 'wounds'>;
 }

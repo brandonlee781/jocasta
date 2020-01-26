@@ -26,7 +26,7 @@
     }],
     "react/jsx-props-no-spreading": "off",
     "import/extensions": [1, {
-      "ts": "never",
+      "ts": "never"
     }]
   },
   "overrides": [

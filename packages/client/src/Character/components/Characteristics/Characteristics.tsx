@@ -6,7 +6,7 @@ import { ReactComponent as IntellectIcon } from 'assets/svg/characteristics/inte
 import { ReactComponent as CunningIcon } from 'assets/svg/characteristics/cunning.svg';
 import { ReactComponent as WillpowerIcon } from 'assets/svg/characteristics/willpower.svg';
 import { ReactComponent as PresenceIcon } from 'assets/svg/characteristics/presence.svg';
-import { CharacterCharacteristics } from 'Character/Character.model';
+import { Characteristic } from 'generated/graphql';
 import { ItemWrapper, Wrapper } from './Characteristics.style';
 
 interface CharacteristicItemProps {
@@ -22,14 +22,14 @@ const CharacteristicItem: React.FC<CharacteristicItemProps> = ({ title, icon, va
   </ItemWrapper>
 )
 
-interface CharacteristicsProps extends CharacterCharacteristics {}
+interface CharacteristicsProps extends Characteristic {}
 export const Characteristics: React.FC<CharacteristicsProps> = ({
-  brawn = 0,
-  agility = 0,
-  intellect = 0,
-  cunning = 0,
-  willpower = 0,
-  presence = 0,
+  Brawn = 0,
+  Agility = 0,
+  Intellect = 0,
+  Cunning = 0,
+  Willpower = 0,
+  Presence = 0,
 }) => {
   return (
     <Wrapper>
@@ -37,37 +37,37 @@ export const Characteristics: React.FC<CharacteristicsProps> = ({
       <CharacteristicItem
         title="Brawn"
         icon={<BrawnIcon/>}
-        value={brawn}
+        value={Brawn}
       />
 
       <CharacteristicItem
         title="Agility"
         icon={<AgilityIcon/>}
-        value={agility}
+        value={Agility}
       />
 
       <CharacteristicItem
         title="Intellect"
         icon={<IntellectIcon/>}
-        value={intellect}
+        value={Intellect}
       />
 
       <CharacteristicItem
         title="Cunning"
         icon={<CunningIcon/>}
-        value={cunning}
+        value={Cunning}
       />
 
       <CharacteristicItem
         title="Willpower"
         icon={<WillpowerIcon/>}
-        value={willpower}
+        value={Willpower}
       />
 
       <CharacteristicItem
         title="Presence"
         icon={<PresenceIcon/>}
-        value={presence}
+        value={Presence}
       />
     </Wrapper>
   );

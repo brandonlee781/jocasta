@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { HealthInfoDrawer } from './HealthInfoDrawer';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
-import { Character } from 'Character/Character.model';
+import { Character, DerivedAttribute } from 'generated/graphql';
+import { HealthInfoDrawer } from './HealthInfoDrawer';
 
 export default {
   title: 'HealthInfoDrawer',
   component: HealthInfoDrawer,
 }
 
-const character: Pick<Character, 'derivedAttributes' | 'injuries'> = {
+const character: { derivedAttributes: DerivedAttribute, injuries: Character['injuries'] } = {
   derivedAttributes: {
     id: '1234',
     soak: 3,
     wounds: {
+      id: 'wounds',
       current: 0,
       threshold: 14,
     },
     strain: {
+      id: 'strain',
       current: 0,
       threshold: 13,
     },
@@ -39,10 +41,11 @@ export const Default = () => {
       derivedAttributes: {
         ...char.derivedAttributes,
         wounds: {
+          id: char.derivedAttributes.wounds.id,
+          threshold: char.derivedAttributes.wounds.threshold,
           current: value,
-          threshold: char?.derivedAttributes?.wounds?.threshold ?? 0,
-        },
-      },
+        }
+      }
     });
   };
   const strainChange = (value: number) => {
@@ -51,13 +54,14 @@ export const Default = () => {
       derivedAttributes: {
         ...char.derivedAttributes,
         strain: {
+          id: char.derivedAttributes.strain.id,
           current: value,
-          threshold: char?.derivedAttributes?.strain?.threshold ?? 0,
+          threshold: char.derivedAttributes.strain.threshold,
         },
       },
     });
   };
-  const injuriesChange = (value: string) => {
+  const injuriesChange = (value: Character['injuries']) => {
     setChar({
       ...char,
       injuries: value,

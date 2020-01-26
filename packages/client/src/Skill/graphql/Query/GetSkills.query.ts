@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost';
-import { Skill } from 'Skill/Skill.model';
+import { Skill } from 'generated/graphql';
 
 export const GET_SKILLS = gql`
   query GetSkills {

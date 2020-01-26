@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { CountInput } from 'Base/components/input/CountInput';
-import { Threshold } from 'Base/types/Threshold';
 import Divider from '@material-ui/core/Divider';
+import { Character, Threshold } from 'generated/graphql';
 import { Section, SectionTitle, SectionInfo, Wrapper, Title } from './HealthInfoDrawer.style';
 
 interface DefenseSectionProps {
@@ -84,22 +84,22 @@ const StrainSection: React.FC<StrainSectionProps> = ({ strain, increase, decreas
   </Section>
 );
 
-
+type Injury = Character['injuries'];
 export interface HealthInfoDrawerProps extends DefenseSectionProps {
-  wounds?: Threshold;
-  strain?: Threshold;
-  injuries?: string;
+  wounds: Threshold;
+  strain: Threshold;
+  injuries: Injury;
   onWoundsChange: (value: number) => void;
   onStrainChange: (value: number) => void;
-  onInjuriesChange: (value: string) => void;
+  onInjuriesChange: (value: Injury) => void;
 }
 export const HealthInfoDrawer: React.FC<HealthInfoDrawerProps> = ({
   soak = 0,
   meleeDef = 0,
   rangedDef = 0,
-  wounds = { current: 0, threshold: 0 },
-  strain = { current: 0, threshold: 0 },
-  injuries = '',
+  wounds,
+  strain,
+  injuries,
   onWoundsChange,
   onStrainChange,
   onInjuriesChange,
@@ -155,7 +155,7 @@ export const HealthInfoDrawer: React.FC<HealthInfoDrawerProps> = ({
           label="Critical Injuries"
           multiline
           rows="4"
-          onChange={event => setTempInjuries(event.target.value)}
+          onChange={event => setTempInjuries(event.target.value as Injury)}
           onBlur={() => onInjuriesChange(tempInjuries)}
         />
     </Wrapper>

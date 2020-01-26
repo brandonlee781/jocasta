@@ -1,9 +1,8 @@
 import React from 'react';
-import { SkillType } from 'Skill/Skill.model';
-import { Characteristic } from 'Base/types/Characteristic';
 import { ReactComponent as AstrogationIcon } from 'assets/svg/skills/astrogation.svg';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
 import { SkillInfoDrawer } from './SkillInfoDrawer';
+import { SkillType, CharacteristicName } from 'generated/graphql';
 
 export default {
   title: 'SkillInfoDrawer',
@@ -15,7 +14,7 @@ const props = {
     id: 1,
     name: 'Astrogation',
     type: SkillType.General,
-    characteristic: Characteristic.Intellect,
+    characteristic: CharacteristicName.Intellect,
     career: false,
     rank: 0,
   },
@@ -23,12 +22,13 @@ const props = {
     id: 1,
     name: 'Bran Highwind',
     characteristics: {
-      agility: 2,
-      brawn: 2,
-      cunning: 3,
-      intellect: 5,
-      presence: 2,
-      willpower: 2,
+      id: 'characteristics',
+      Agility: 2,
+      Brawn: 2,
+      Cunning: 3,
+      Intellect: 5,
+      Presence: 2,
+      Willpower: 2,
     },
   },
 }

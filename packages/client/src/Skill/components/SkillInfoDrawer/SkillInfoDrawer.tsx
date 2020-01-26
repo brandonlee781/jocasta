@@ -1,8 +1,6 @@
 import React, {  useState } from 'react';
 import { Grid, Divider } from '@material-ui/core';
-import { CharacteristicAcronyms, Characteristic as CharacteristicEnum } from 'Base/types/Characteristic';
 import { DiceDisplay } from 'Dice/DiceDisplay/DiceDisplay';
-import { CharacterCharacteristics } from 'Character/Character.model';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
@@ -17,6 +15,7 @@ import useCopyClipboard from 'Base/use/useCopyClipboard';
 import useSkillDice, { SkillDice } from 'Skill/use/useSkillDice';
 import { SkillInfo } from 'store/root-reducer';
 // import useDiceRoll from 'Dice/use/useDiceRoll';
+import { CharacteristicName, Character } from 'generated/graphql';
 import { Wrapper, SkillDetail, SkillIcon, SkillDetailContent, SkillName, Characteristic, CurrentDice, Rank, ModifyDice, ResetButton, DiceLabel, DiceActionButton } from './SkillInfoDrawer.style';
 
 const getSkillDice = (rank: number, characteristic: number) => {
@@ -28,18 +27,27 @@ const getSkillDice = (rank: number, characteristic: number) => {
   };
 }
 
+export const CharacteristicAcronyms = {
+  [CharacteristicName.Brawn as string]: 'Br',
+  [CharacteristicName.Agility as string]: 'Ag',
+  [CharacteristicName.Intellect as string]: 'Int',
+  [CharacteristicName.Cunning as string]: 'Cun',
+  [CharacteristicName.Presence as string]: 'Pr',
+  [CharacteristicName.Willpower as string]: 'Will',
+};
+
 export interface SkillInfoDrawerProps {
   skill: SkillInfo;
   icon: React.ReactElement;
-  characteristics?: CharacterCharacteristics;
+  characteristics: Character['characteristics'];
 }
 export const SkillInfoDrawer: React.FC<SkillInfoDrawerProps> = ({
   icon,
   skill,
-  characteristics = {}
+  characteristics,
 }) => {
-  const skillChar = skill.characteristic.toLowerCase() as CharacteristicEnum;
-  const skillProficiency = characteristics[skillChar] ?? 0;
+  const skillChar = skill.characteristic;
+  const skillProficiency = characteristics && characteristics[skillChar] ? characteristics[skillChar] : 0;
   const skillDice = getSkillDice(skill.rank, skillProficiency);
   
   const [dice, diceString, setDice, resetDice] = useSkillDice(skillDice, skill.name);
@@ -75,7 +83,7 @@ export const SkillInfoDrawer: React.FC<SkillInfoDrawerProps> = ({
           <Grid container direction="row">
             <Rank>Rank: {skill.rank}</Rank>
             <Characteristic>
-              {CharacteristicAcronyms[skillChar]}: {characteristics[skillChar]}
+              {CharacteristicAcronyms[skillChar]}: {skillProficiency}
             </Characteristic>
           </Grid>
         </SkillDetailContent>

@@ -1,17 +1,16 @@
 import React, { useState, memo } from 'react';
 import { useSkills, SkillResponse, SkillTypeFilter } from 'Skill/use/useSkills';
-import { CharacterSkill } from 'Character/Character.model';
 
 import { useDispatch } from 'react-redux';
 import { RootDispatcher, InfoDrawerChildren } from 'store/root-reducer';
 import Tabs from '@material-ui/core/Tabs';
-import { SkillType } from 'Skill/Skill.model';
 import { LoadingSpinner } from 'Base/components/loading/LoadingSpinner';
 import { CharacterSkillsTable } from 'Skill/components/SkillsTable';
 import { SkillTitle, Content, StyledTab } from './CharacterSkills.style';
+import { SkillType, CharacterSkills as CharacterSkill } from 'generated/graphql';
 
 interface CharacterSkillsProps {
-  skills?: CharacterSkill[]
+  skills: CharacterSkill[]
 }
 export const CharacterSkills: React.FC<CharacterSkillsProps> = memo(({
   skills

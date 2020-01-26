@@ -6,13 +6,13 @@ import { TopNav } from 'Base/components/navigation/TopNav';
 
 import { useCharacter } from 'Character/use/useCharacter';
 import { CombatQuickActions } from 'Base/components/CombatQuickActions';
-import { Threshold } from 'Base/types/Threshold';
 import { useDispatch } from 'react-redux';
 import { RootDispatcher, InfoDrawerChildren } from 'store/root-reducer';
 import { InfoDrawer } from 'Base/components/InfoDrawer';
 import { LoadingSpinner } from 'Base/components/loading/LoadingSpinner';
 import { LoadingPage } from 'Base/components/loading/LoadingPage';
 import { Content } from './Character.style';
+import { Threshold } from 'generated/graphql';
 
 const Home = lazy(() => import('../../routes/CharacterHome'));
 const Skills = lazy(() => import('../../routes/CharacterSkills'));
@@ -26,8 +26,8 @@ interface CharacterTopNavProps {
 const CharacterTopNav: React.FC<CharacterTopNavProps> = ({
   showQuickActions,
   name,
-  wounds = { current: 0, threshold: 0 },
-  strain = { current: 0, threshold: 0 },
+  wounds = { id: 'wounds', current: 0, threshold: 0 },
+  strain = { id: 'wounds', current: 0, threshold: 0 },
 }) => {
   const dispatch = useDispatch();
   const { toggleInfoDrawer } = new RootDispatcher(dispatch);
@@ -58,6 +58,7 @@ const Character: React.FC = () => {
 
   if (loading) return <LoadingPage />;
   if (error) return <span>{ error.message }</span>;
+  if (!character || !character.id) return <span>No such character</span>
   return (
     <PageWrapper
       open={navOpen}

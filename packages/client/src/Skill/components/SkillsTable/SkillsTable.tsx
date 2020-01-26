@@ -1,5 +1,4 @@
 import React from 'react';
-import { CharacteristicAcronyms, Characteristic } from 'Base/types/Characteristic';
 
 import TableRow from '@material-ui/core/TableRow';
 import { StyledTableCell } from 'Base/components/BaseTable/BaseTable.style';
@@ -9,6 +8,8 @@ import { SkillResponse } from 'Skill/use/useSkills';
 import { Grid } from '@material-ui/core';
 import { BaseTable } from 'Base/components/BaseTable/BaseTable';
 import { CareerDot, SkillIcon } from './SkillsTable.style';
+import { CharacteristicAcronyms } from '../SkillInfoDrawer/SkillInfoDrawer';
+import { CharacteristicName } from 'generated/graphql';
 
 interface CharacterSkillsTableProps {
   skills?: SkillResponse[];
@@ -27,7 +28,7 @@ export const CharacterSkillsTable: React.FC<CharacterSkillsTableProps> = ({ skil
             </Grid>
           </StyledTableCell>
           <StyledTableCell color="#fff">
-            {CharacteristicAcronyms[skill?.characteristic.toLowerCase() as Characteristic]}
+            {CharacteristicAcronyms[skill?.characteristic.toLowerCase() as CharacteristicName]}
           </StyledTableCell>
           <StyledTableCell color="#fff" align="center">
             <CareerDot career={skill?.career}/>

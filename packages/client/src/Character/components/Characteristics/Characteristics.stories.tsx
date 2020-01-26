@@ -1,7 +1,7 @@
 import React from 'react';
-import { Characteristics } from './Characteristics';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
-import { Character } from 'Character/Character.model';
+import { Characteristic } from 'generated/graphql';
+import { Characteristics } from './Characteristics';
 
 const style = {
   display: 'flex',
@@ -24,19 +24,18 @@ export default {
   ]
 }
 
-const character: Pick<Character, 'characteristics'> = {
-  characteristics: {
-    agility: 2,
-    brawn: 2,
-    cunning: 5,
-    intellect: 3,
-    presence: 2,
-    willpower: 2,
-  },
+const characteristics: Characteristic = {
+  id: '1',
+  Agility: 2,
+  Brawn: 2,
+  Cunning: 5,
+  Intellect: 3,
+  Presence: 2,
+  Willpower: 2,
 };
 
 
 
 export const Default = () => (
-  <Characteristics  {...character.characteristics} />
+  <Characteristics  {...characteristics} />
 );

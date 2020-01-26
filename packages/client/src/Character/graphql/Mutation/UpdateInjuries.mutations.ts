@@ -1,4 +1,5 @@
 import { gql } from 'apollo-boost'
+import { Character } from 'generated/graphql';
 
 export const UPDATE_INJURIES = gql`
   mutation UpdateInjuries($id: ID!, $injuries: String!) {
@@ -16,10 +17,10 @@ export const UPDATE_INJURIES = gql`
 
 export interface UpdateInjuriesVariables {
   id: string;
-  injuries: string;
+  injuries: Character['injuries'];
 }
 
 export interface UpdateInjuriesResult {
   id: string;
-  injuries: string;
+  injuries: Character['injuries'];
 }

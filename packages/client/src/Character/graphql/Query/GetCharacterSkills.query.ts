@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost';
-import { Character } from 'Character/Character.model';
+import { Character } from 'generated/graphql';
 
 export const GET_CHARACTER_SKILL = gql`
-  query GetCharacter($id: ID!) {
+  query GetCharacterSkills($id: ID!) {
     character(where: { id: $id }){
       id
       skills {
@@ -18,7 +18,7 @@ export const GET_CHARACTER_SKILL = gql`
   }
 `;
 export interface GetCharacterSkillsVariables {
-  id: string;
+  id: Pick<Character, 'id'>;
 }
 export interface GetCharacterSkillsResult {
   character: Character;

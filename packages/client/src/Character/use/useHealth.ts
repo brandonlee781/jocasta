@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect, Dispatch, SetStateAction } from 'react';
-import { Threshold } from 'Base/types/Threshold';
 import useDebounce from 'Base/use/useDebounce';
 import { useMutation } from '@apollo/react-hooks';
 import { UpdateWoundsResult, UpdateWoundsVariables, UPDATE_WOUNDS } from 'Character/graphql/Mutation/UpdateWounds.mutation';
 import { UPDATE_STRAIN, UpdateStrainVariables, UpdateStrainResult } from 'Character/graphql/Mutation/UpdateStrain.mutation';
+import { Threshold } from 'generated/graphql';
 
 export function useWounds(id: string, initialWounds?: Threshold): [Threshold, Dispatch<SetStateAction<number>>] {
   const didMountRef = useRef(false);
@@ -28,6 +28,7 @@ export function useWounds(id: string, initialWounds?: Threshold): [Threshold, Di
 
   return [
     { 
+      id: initialWounds?.id ?? 'wounds',
       current: wounds,
       threshold: initialWounds?.threshold ?? 0,
     },
@@ -59,6 +60,7 @@ export function useStrain(id: string, initialStrain?: Threshold): [Threshold, Di
 
   return [
     { 
+      id: initialStrain?.id ?? 'strain',
       current: strain,
       threshold: initialStrain?.threshold ?? 0,
     },

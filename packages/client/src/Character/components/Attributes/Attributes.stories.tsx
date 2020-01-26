@@ -1,7 +1,7 @@
 import React from 'react';
-import { Attributes } from './Attributes';
 import { MobileDisplay } from 'Base/stories/MobileDisplay';
-import { Character } from 'Character/Character.model';
+import { Character, DerivedAttribute } from 'generated/graphql';
+import { Attributes } from './Attributes';
 
 const style = {
   display: 'flex',
@@ -26,24 +26,26 @@ export default {
   ]
 }
 
-const character: Pick<Character, 'derivedAttributes'> = {
-  derivedAttributes: {
-    soak: 3,
-    wounds: {
-      current: 0,
-      threshold: 14
-    },
-    strain: {
-      current: 0,
-      threshold: 13,
-    },
-    defense: {
-      melee: 1,
-      ranged: 1,
-    },
+const derivedAttributes: DerivedAttribute = {
+  id: '1',
+  soak: 3,
+  wounds: {
+    id: '2',
+    current: 0,
+    threshold: 14
+  },
+  strain: {
+    id: '3',
+    current: 0,
+    threshold: 13,
+  },
+  defense: {
+    id: '4',
+    melee: 1,
+    ranged: 1,
   },
 };
 
 export const Default = () => (
-  <Attributes {...character.derivedAttributes} />
+  <Attributes {...derivedAttributes} />
 );
