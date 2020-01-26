@@ -12,10 +12,10 @@ export const StyledHeadCell = styled(TableCell)`
   }
 `;
 
-interface StyledTableCellProps { color?: string; }
+interface StyledTableCellProps { color?: string; hideBorder?: boolean }
 export const StyledTableCell = styled(TableCell)<StyledTableCellProps>`
   && {
     color: ${p => p.color ? p.color : '#DADADA'};
-    border-bottom: none;
+    ${p => p.hideBorder ? 'border-bottom: none;' : 'border-bottom: 1px solid rgba(218, 218, 218, 0.5)' }
   }
 `;

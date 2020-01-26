@@ -6,8 +6,8 @@ import { RootDispatcher, InfoDrawerChildren } from 'store/root-reducer';
 import Tabs from '@material-ui/core/Tabs';
 import { LoadingSpinner } from 'Base/components/loading/LoadingSpinner';
 import { CharacterSkillsTable } from 'Skill/components/SkillsTable';
-import { SkillTitle, Content, StyledTab } from './CharacterSkills.style';
 import { SkillType, CharacterSkills as CharacterSkill } from 'generated/graphql';
+import { SkillTitle, Content, StyledTab } from './CharacterSkills.style';
 
 interface CharacterSkillsProps {
   skills: CharacterSkill[]

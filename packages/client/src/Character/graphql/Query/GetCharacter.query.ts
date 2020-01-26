@@ -9,6 +9,7 @@ export const GET_CHARACTER = gql`
       species
       career
       specializations {
+        id
         name
       }
       characteristics {
@@ -45,6 +46,24 @@ export const GET_CHARACTER = gql`
         type
         career
         rank
+      }
+      talents {
+        id
+        row
+        column
+        connections
+        talent {
+          id
+          name
+          description
+          ranked
+          activation
+          force
+          specializations {
+            id
+            name
+          }
+        }
       }
       injuries
       imageUrl

@@ -7,9 +7,9 @@ import SkillIcons from 'Skill/components/SkillInfoDrawer/SkillIcons/SkillIcons';
 import { SkillResponse } from 'Skill/use/useSkills';
 import { Grid } from '@material-ui/core';
 import { BaseTable } from 'Base/components/BaseTable/BaseTable';
+import { CharacteristicName } from 'generated/graphql';
 import { CareerDot, SkillIcon } from './SkillsTable.style';
 import { CharacteristicAcronyms } from '../SkillInfoDrawer/SkillInfoDrawer';
-import { CharacteristicName } from 'generated/graphql';
 
 interface CharacterSkillsTableProps {
   skills?: SkillResponse[];
@@ -21,19 +21,19 @@ export const CharacterSkillsTable: React.FC<CharacterSkillsTableProps> = ({ skil
     <BaseTable headers={headers}>
       {skills?.map(skill => (
         <TableRow key={skill.id} onClick={() => onSkillClick(skill)}>
-          <StyledTableCell>
+          <StyledTableCell hideBorder>
             <Grid container alignItems="center">
               <SkillIcon>{SkillIcons[skill.id]}</SkillIcon>
               {skill.name}
             </Grid>
           </StyledTableCell>
-          <StyledTableCell color="#fff">
+          <StyledTableCell color="#fff" hideBorder>
             {CharacteristicAcronyms[skill?.characteristic.toLowerCase() as CharacteristicName]}
           </StyledTableCell>
-          <StyledTableCell color="#fff" align="center">
+          <StyledTableCell color="#fff" align="center" hideBorder>
             <CareerDot career={skill?.career}/>
           </StyledTableCell>
-          <StyledTableCell color="#fff" align="center">
+          <StyledTableCell color="#fff" align="center" hideBorder>
             {skill?.rank}
           </StyledTableCell>
         </TableRow>

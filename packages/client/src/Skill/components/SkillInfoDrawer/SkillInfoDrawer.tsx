@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { Grid, Divider } from '@material-ui/core';
-import { DiceDisplay } from 'Dice/DiceDisplay/DiceDisplay';
+import { DiceDisplay } from 'Dice/components/DiceDisplay/DiceDisplay';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
@@ -10,7 +10,7 @@ import { ReactComponent as ChallengeIcon } from 'assets/svg/dice/challenge.svg';
 import { ReactComponent as DifficultyIcon } from 'assets/svg/dice/difficulty.svg';
 import { ReactComponent as ProficiencyIcon } from 'assets/svg/dice/proficiency.svg';
 import { ReactComponent as SetbackIcon } from 'assets/svg/dice/setback.svg';
-import { DiceCountInput } from 'Dice/DiceCountInput/DiceCountInput';
+import { DiceCountInput } from 'Dice/components/DiceCountInput/DiceCountInput';
 import useCopyClipboard from 'Base/use/useCopyClipboard';
 import useSkillDice, { SkillDice } from 'Skill/use/useSkillDice';
 import { SkillInfo } from 'store/root-reducer';

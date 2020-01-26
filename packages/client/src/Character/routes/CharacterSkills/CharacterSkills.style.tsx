@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Tab from '@material-ui/core/Tab';
 
 export const Content = styled.div`
+  position: relative;
   background: rgba(229, 229, 229, 0.12);
   border-radius: 25px;
   padding: 16px 8px;

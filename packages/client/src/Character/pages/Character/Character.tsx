@@ -11,11 +11,12 @@ import { RootDispatcher, InfoDrawerChildren } from 'store/root-reducer';
 import { InfoDrawer } from 'Base/components/InfoDrawer';
 import { LoadingSpinner } from 'Base/components/loading/LoadingSpinner';
 import { LoadingPage } from 'Base/components/loading/LoadingPage';
-import { Content } from './Character.style';
 import { Threshold } from 'generated/graphql';
+import { Content } from './Character.style';
 
 const Home = lazy(() => import('../../routes/CharacterHome'));
 const Skills = lazy(() => import('../../routes/CharacterSkills'));
+const Talents = lazy(() => import('../../routes/CharacterTalents'));
 
 interface CharacterTopNavProps {
   showQuickActions: boolean;
@@ -83,6 +84,11 @@ const Character: React.FC = () => {
           <Route path="/character/:id/gear" exact>
             <span>CHARACTER GEAR</span>
           </Route>
+          <Route
+            path="/character/:id/talents"
+            exact
+            render={(props) => (<Talents {...props} talents={character?.talents} specializations={character?.specializations}/>)}
+          />
           <Route 
             path="/character/:id/skill"
             exact
