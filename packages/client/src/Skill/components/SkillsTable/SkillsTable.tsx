@@ -1,12 +1,12 @@
 import React from 'react';
 
 import TableRow from '@material-ui/core/TableRow';
-import { StyledTableCell } from 'Base/components/BaseTable/BaseTable.style';
+import { StyledTableCell } from 'App/components/BaseTable/BaseTable.style';
 import SkillIcons from 'Skill/components/SkillInfoDrawer/SkillIcons/SkillIcons';
 
 import { SkillResponse } from 'Skill/use/useSkills';
 import { Grid } from '@material-ui/core';
-import { BaseTable } from 'Base/components/BaseTable/BaseTable';
+import { BaseTable } from 'App/components/BaseTable/BaseTable';
 import { CharacteristicName } from 'generated/graphql';
 import { CareerDot, SkillIcon } from './SkillsTable.style';
 import { CharacteristicAcronyms } from '../SkillInfoDrawer/SkillInfoDrawer';

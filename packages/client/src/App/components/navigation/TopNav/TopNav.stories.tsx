@@ -1,12 +1,12 @@
 import React from 'react'
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@material-ui/core';
 import { CombatQuickActions } from '../../CombatQuickActions';
 import { TopNav } from './TopNav'
 
 export default {
-  title: 'Base/Navigation/TopNav',
+  title: 'App/Navigation/TopNav',
   component: TopNav
 }
 

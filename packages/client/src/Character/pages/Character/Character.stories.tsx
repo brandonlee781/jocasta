@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { client } from 'client';

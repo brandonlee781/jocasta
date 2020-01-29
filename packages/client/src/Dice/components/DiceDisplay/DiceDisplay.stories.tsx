@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, number } from "@storybook/addon-knobs";
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { DiceDisplay } from './DiceDisplay';
 
 export default {

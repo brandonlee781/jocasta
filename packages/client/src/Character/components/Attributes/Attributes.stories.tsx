@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import {  DerivedAttribute } from 'generated/graphql';
 import { Attributes } from './Attributes';
 

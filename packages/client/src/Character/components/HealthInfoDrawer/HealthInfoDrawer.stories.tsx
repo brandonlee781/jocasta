@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { Character, DerivedAttribute } from 'generated/graphql';
 import { HealthInfoDrawer } from './HealthInfoDrawer';
 

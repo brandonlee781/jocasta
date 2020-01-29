@@ -1,16 +1,16 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { useParams, Route, useRouteMatch } from 'react-router-dom';
-// import { useToggle } from 'Base/use/useToggle';
-import { PageWrapper } from 'Base/components/PageWrapper';
-import { TopNav } from 'Base/components/navigation/TopNav';
+// import { useToggle } from 'App/use/useToggle';
+import { PageWrapper } from 'App/components/PageWrapper';
+import { TopNav } from 'App/components/navigation/TopNav';
 
 import { useCharacter } from 'Character/use/useCharacter';
-import { CombatQuickActions } from 'Base/components/CombatQuickActions';
+import { CombatQuickActions } from 'App/components/CombatQuickActions';
 import { useDispatch } from 'react-redux';
 import { RootDispatcher, InfoDrawerChildren } from 'store/root-reducer';
-import { InfoDrawer } from 'Base/components/InfoDrawer';
-import { LoadingSpinner } from 'Base/components/loading/LoadingSpinner';
-import { LoadingPage } from 'Base/components/loading/LoadingPage';
+import { InfoDrawer } from 'App/components/InfoDrawer';
+import { LoadingSpinner } from 'App/components/loading/LoadingSpinner';
+import { LoadingPage } from 'App/components/loading/LoadingPage';
 import { Threshold } from 'generated/graphql';
 import { Content } from './Character.style';
 

@@ -4,7 +4,7 @@ import { useSkills, SkillResponse, SkillTypeFilter } from 'Skill/use/useSkills';
 import { useDispatch } from 'react-redux';
 import { RootDispatcher, InfoDrawerChildren } from 'store/root-reducer';
 import Tabs from '@material-ui/core/Tabs';
-import { LoadingSpinner } from 'Base/components/loading/LoadingSpinner';
+import { LoadingSpinner } from 'App/components/loading/LoadingSpinner';
 import { CharacterSkillsTable } from 'Skill/components/SkillsTable';
 import { SkillType, CharacterSkills as CharacterSkill } from 'generated/graphql';
 import { SkillTitle, Content, StyledTab } from './CharacterSkills.style';

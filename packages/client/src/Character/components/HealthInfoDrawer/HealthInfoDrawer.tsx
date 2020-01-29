@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
-import { CountInput } from 'Base/components/input/CountInput';
+import { CountInput } from 'App/components/inputs/CountInput';
 import Divider from '@material-ui/core/Divider';
 import { Character, Threshold } from 'generated/graphql';
 import { Section, SectionTitle, SectionInfo, Wrapper, Title } from './HealthInfoDrawer.style';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { Talent, TalentActivation } from 'generated/graphql';
 import { TalentsTable } from './TalentsTable';
 

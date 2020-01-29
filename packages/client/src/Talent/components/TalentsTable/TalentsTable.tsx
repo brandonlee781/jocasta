@@ -1,8 +1,8 @@
 import React from 'react';
-import { BaseTable } from 'Base/components/BaseTable/BaseTable';
+import { BaseTable } from 'App/components/BaseTable/BaseTable';
 import { Talent } from 'generated/graphql';
 import { TableRow, Typography } from '@material-ui/core';
-import { StyledTableCell } from 'Base/components/BaseTable/BaseTable.style';
+import { StyledTableCell } from 'App/components/BaseTable/BaseTable.style';
 
 interface TableTalent {
   id: Talent['id'];

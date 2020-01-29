@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, Dispatch, SetStateAction } from 'react';
-import useDebounce from 'Base/use/useDebounce';
+import useDebounce from 'App/use/useDebounce';
 import { useMutation } from '@apollo/react-hooks';
 import { UpdateWoundsResult, UpdateWoundsVariables, UPDATE_WOUNDS } from 'Character/graphql/Mutation/UpdateWounds.mutation';
 import { UPDATE_STRAIN, UpdateStrainVariables, UpdateStrainResult } from 'Character/graphql/Mutation/UpdateStrain.mutation';

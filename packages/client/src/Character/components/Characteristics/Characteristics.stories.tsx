@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { Characteristic } from 'generated/graphql';
 import { Characteristics } from './Characteristics';
 

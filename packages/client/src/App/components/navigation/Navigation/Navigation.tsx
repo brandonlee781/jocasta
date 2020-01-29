@@ -8,7 +8,7 @@ import { ReactComponent as DutyIcon } from 'assets/svg/ui/rebels.svg';
 import { ReactComponent as SkillIcon } from 'assets/svg/ui/skills.svg';
 import { useRouteMatch } from 'react-router-dom';
 
-import { NavigationButton } from 'Base/components/navigation/NavigationButton';
+import { NavigationButton } from 'App/components/navigation/NavigationButton';
 import { NavigationWrapper } from './Navigation.style';
 
 

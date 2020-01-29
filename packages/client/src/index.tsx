@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from 'store';
 import * as serviceWorker from './serviceWorker';
 
-import App from './App';
+import App from './App/pages/App';
 
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line global-require

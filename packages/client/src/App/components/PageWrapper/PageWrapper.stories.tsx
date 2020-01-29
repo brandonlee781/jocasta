@@ -1,12 +1,12 @@
 import React from 'react';
-import { withRouter } from 'Base/stories/withRouter';
+import { withRouter } from 'App/stories/withRouter';
 import { Typography } from '@material-ui/core';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
-import { useToggle } from 'Base/use/useToggle';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
+import { useToggle } from 'App/use/useToggle';
 import { PageWrapper } from './PageWrapper';
 
 export default {
-  title: 'Base/PageWrapper',
+  title: 'App/PageWrapper',
   component: PageWrapper,
   decorators: [
     withRouter,

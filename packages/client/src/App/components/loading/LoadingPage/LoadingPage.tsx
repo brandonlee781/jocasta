@@ -1,7 +1,7 @@
 import React from 'react';
-import { PageWrapper } from 'Base/components/PageWrapper';
-import { TopNav } from 'Base/components/navigation/TopNav';
-import { useToggle } from 'Base/use/useToggle';
+import { PageWrapper } from 'App/components/PageWrapper';
+import { TopNav } from 'App/components/navigation/TopNav';
+import { useToggle } from 'App/use/useToggle';
 import { LoadingSpinner } from '../LoadingSpinner';
 
 interface LoadingPageProps {

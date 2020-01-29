@@ -11,7 +11,7 @@ import { ReactComponent as DifficultyIcon } from 'assets/svg/dice/difficulty.svg
 import { ReactComponent as ProficiencyIcon } from 'assets/svg/dice/proficiency.svg';
 import { ReactComponent as SetbackIcon } from 'assets/svg/dice/setback.svg';
 import { DiceCountInput } from 'Dice/components/DiceCountInput/DiceCountInput';
-import useCopyClipboard from 'Base/use/useCopyClipboard';
+import useCopyClipboard from 'App/use/useCopyClipboard';
 import useSkillDice, { SkillDice } from 'Skill/use/useSkillDice';
 import { SkillInfo } from 'store/root-reducer';
 // import useDiceRoll from 'Dice/use/useDiceRoll';

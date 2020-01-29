@@ -1,10 +1,10 @@
 import React from 'react';
-import { withRouter } from 'Base/stories/withRouter';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { withRouter } from 'App/stories/withRouter';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { LoadingPage } from './LoadingPage';
 
 export default {
-  title: 'Base/Loading/LoadingPage',
+  title: 'App/Loading/LoadingPage',
   component: LoadingPage,
   decorators: [
     withRouter,

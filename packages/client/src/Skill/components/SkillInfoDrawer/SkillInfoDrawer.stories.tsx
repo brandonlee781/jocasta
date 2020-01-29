@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactComponent as AstrogationIcon } from 'assets/svg/skills/astrogation.svg';
-import { MobileDisplay } from 'Base/stories/MobileDisplay';
+import { MobileDisplay } from 'App/stories/MobileDisplay';
 import { SkillType, CharacteristicName } from 'generated/graphql';
 import { SkillInfoDrawer } from './SkillInfoDrawer';
 

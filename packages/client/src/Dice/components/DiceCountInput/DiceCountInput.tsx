@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Grid } from '@material-ui/core';
-import { CountInput } from 'Base/components/input/CountInput';
-import { CountInputProps } from 'Base/components/input/CountInput/CountInput'
+import { CountInput } from 'App/components/inputs/CountInput';
+import { CountInputProps } from 'App/components/inputs/CountInput/CountInput'
 
 const Wrapper = styled(Grid)`
   max-width: 90px;
